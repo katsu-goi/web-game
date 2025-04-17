@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="shortcut icon" type="x-icon" href="logo.png">
+    <link rel="shortcut icon" type="x-icon" href="logo.jpg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>APEX Games - Bug Hunter</title> <?php // Adjust title as needed ?>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
