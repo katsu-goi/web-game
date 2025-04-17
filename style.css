@@ -1,0 +1,327 @@
+/* ============================== */
+/* Global Styles & Basic Reset    */
+/* ============================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif; /* Fallback font */
+    font-family: 'Orbitron', sans-serif; /* Futuristic font */
+    color: #fff;
+    background-color: #0a0a1a; /* Dark blue/purple background */
+    position: relative; /* Needed for absolute/fixed positioning of children */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    min-height: 100vh; /* Ensure background covers full height */
+}
+
+/* ============================== */
+/* Background & Overlay          */
+/* ============================== */
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 78vh; /* Adjusted default height slightly */
+    background: url('BugXHunters.png') no-repeat center center/cover;
+    z-index: -2;
+    
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(10, 10, 26, 0.5), rgba(10, 10, 26, 1) 90%); /* Adjusted gradient stop */
+    z-index: -2;
+}
+
+/* ============================== */
+/* Header Styles (Shared)         */
+/* ============================== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    z-index: 10;
+}
+.logo {
+    font-size: 1.8em; font-weight: bold; 
+    color: #ffffff; 
+    text-shadow: 0 0 5px #cc00ff, 0 0 10px #cc00ff;
+}
+nav{
+    display: flex;
+    align-items: center;
+}
+nav ul {
+    list-style: none; 
+    display: flex;
+    margin: 0;
+    padding: 0;
+
+}
+nav ul li {
+    margin-left: 20px;
+}
+nav ul li:first-child {
+    margin-left: 0; /* Remove left margin from the first item */
+}
+nav ul li a {
+    text-decoration: none; 
+    color: #a0a0c0; 
+    padding: 5px 10px; 
+    border-radius: 4px; 
+    transition: background-color 0.3s, color 0.3s, text-shadow 0.3s;
+}
+nav ul li a.active,
+nav ul li a:hover {
+    color: #fff; 
+    background-color: rgba(204, 0, 255, 0.3); 
+    text-shadow: 0 0 8px #fff;
+}
+nav::after {
+    content: "";
+    height: 20px; /* Adjust height of the vertical line */
+    width: 1px;
+    background-color: #666; /* Subtle color for the line */
+    margin-left: 30px; /* Space between nav links and the line */
+}
+header a.button-link {
+     text-decoration: none;
+}
+.sign-in-btn {
+    padding: 8px 18px; /* Slightly smaller padding */
+    background-color: #7A1EA1;
+    border: 1px solid #9932CC;
+    color: #fff;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9em; /* Slightly smaller font size */
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, box-shadow 0.3s, border-color 0.3s;
+    box-shadow: 0 0 4px rgba(204, 0, 255, 0.4);
+    display: inline-block;
+    margin-left: 20px; /* Space between the vertical line and the button */
+}
+.sign-in-btn:hover {
+    background-color: #9932CC;
+    border-color: #cc00ff;
+    box-shadow: 0 0 10px rgba(204, 0, 255, 0.7);
+}
+
+/* ============================== */
+/* Main Content Base Styles       */
+/* ============================== */
+main {
+    padding: 0 5%; position: relative; z-index: 5; padding-bottom: 50px;
+}
+
+/* ============================== */
+/* Index Page Specific Styles     */
+/* ============================== */
+.hero {
+    display: flex; justify-content: space-between; align-items: center; min-height: 70vh; padding: 40px 0; margin-top: 20px;
+}
+.hero-text {
+    flex-basis: 55%; max-width: 600px;
+}
+.title-box {
+    background-color: rgba(30, 30, 50, 0.7); border: 1px solid #8A2BE2; padding: 15px 30px; margin-bottom: 15px; display: block; width: 70%; font-size: 3.5em; font-weight: bold; color: #f0f0ff; text-shadow: 0 0 8px #cc00ff; clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%); text-align: center;
+}
+.hero-text p {
+    margin-top: 25px; margin-bottom: 35px; line-height: 1.6; color: #c0c0f0; max-width: 450px;
+}
+.play-now-btn {
+    padding: 15px 40px; background-color: #cc00ff; border: 1px solid #e0e0ff; color: #fff; font-family: 'Orbitron', sans-serif; font-size: 1.2em; font-weight: bold; cursor: pointer; border-radius: 5px; transition: background-color 0.3s, box-shadow 0.3s; box-shadow: 0 0 10px #cc00ff, inset 0 0 8px rgba(255, 255, 255, 0.4); clip-path: polygon(5% 0, 100% 0, 95% 100%, 0% 100%);
+}
+.play-now-btn:hover {
+    background-color: #e600ff; box-shadow: 0 0 20px #e600ff, inset 0 0 10px rgba(255, 255, 255, 0.6);
+}
+.hero-image {
+    flex-basis: 40%; text-align: center;
+}
+.hero-image img {
+    max-width: 75%; height: auto; opacity: 0.9;
+}
+.card-section {
+    display: flex; justify-content: space-around; margin-top: 50px; padding-bottom: 50px; gap: 20px; flex-wrap: wrap;
+}
+.card {
+    background-color: rgba(40, 40, 60, 0.6); border: 1px solid #8A2BE2; border-radius: 8px; overflow: hidden; flex-basis: 30%; max-width: 200px; transition: transform 0.3s, box-shadow 0.3s;
+}
+.card img {
+    display: block; width: 100%; height: auto; opacity: 0.8;
+}
+.card:hover {
+    transform: translateY(-5px); box-shadow: 0 0 15px #cc00ff;
+}
+
+/* ============================== */
+/* About Page Specific Styles     */
+/* ============================== */
+body.page-about main { padding-top: 50px; }
+.about-content { display: flex; align-items: center; gap: 40px; background-color: rgba(15, 15, 30, 0.7); padding: 30px; border-radius: 10px; border: 1px solid rgba(138, 43, 226, 0.5); max-width: 900px; margin: 50px auto 0 auto; }
+.about-image-container { flex-basis: 35%; max-width: 300px; padding: 15px; border: 2px solid #8A2BE2; border-radius: 8px; background-color: rgba(0, 0, 0, 0.3); box-shadow: 0 0 15px rgba(138, 43, 226, 0.7); flex-shrink: 0; }
+.about-image-container img { display: block; width: 100%; height: auto; border-radius: 4px; }
+.about-text-container { flex-basis: 65%; }
+.about-text-container p { font-size: 1.1em; line-height: 1.7; color: #d0d0f0; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
+
+/* ============================== */
+/* Contact Page Specific Styles   */
+/* ============================== */
+body.page-contact main { padding-top: 30px; }
+.main-heading {
+    text-align: center; font-size: 3em; margin-bottom: 40px; color: #f0f0ff; text-shadow: 0 0 10px #cc00ff;
+}
+
+/* --- MODIFICATION START for Contact Page --- */
+.contact-content {
+    display: flex;
+    justify-content: center; /* CHANGED: Center the single item */
+    gap: 50px;
+    background-color: rgba(15, 15, 30, 0.6);
+    padding: 40px;
+    border-radius: 10px;
+    max-width: 1100px; /* Keep or adjust overall container width */
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid rgba(138, 43, 226, 0.4);
+}
+
+/* REMOVED: All .contact-form related styles deleted */
+
+.contact-details {
+    /* flex-basis: 45%; */   /* REMOVED */
+    max-width: 550px;      /* ADDED: Constrain width */
+    width: 100%;           /* ADDED: Allow filling up to max-width */
+    /* padding-left: 30px; */ /* REMOVED */
+    /* border-left: 1px solid rgba(138, 43, 226, 0.3); */ /* REMOVED */
+}
+/* --- END MODIFICATION for Contact Page --- */
+
+/* Styles inside .contact-details remain */
+.contact-details h2 {
+    font-size: 2em; margin-bottom: 20px; color: #f0f0ff; text-shadow: 0 0 8px #cc00ff;
+}
+.contact-details p {
+    line-height: 1.7; color: #c0c0f0; margin-bottom: 35px;
+}
+.contact-method {
+    display: flex; align-items: flex-start; margin-bottom: 25px; gap: 15px;
+}
+.contact-method i {
+    font-size: 1.8em; color: #8A2BE2; width: 30px; text-align: center; margin-top: 3px; flex-shrink: 0;
+}
+.contact-method div {
+    display: flex; flex-direction: column;
+}
+.contact-method span {
+    font-weight: bold; color: #e0e0ff; font-size: 1.1em; margin-bottom: 3px;
+}
+.contact-method a,
+.contact-method .detail {
+    color: #b0b0ff; text-decoration: none; font-size: 0.95em; word-break: break-word; line-height: 1.4;
+}
+ .contact-method a:hover {
+     color: #cc00ff; text-decoration: underline;
+ }
+
+/* ============================== */
+/* Modal Styles (Sign In/Up)      */
+/* ============================== */
+/* Styles kept as is */
+.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 10, 0.85); display: none; justify-content: center; align-items: center; z-index: 1000; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
+.modal-content { background: #101025; padding: 30px 40px; border-radius: 15px; position: relative; width: 90%; max-width: 420px; box-shadow: 0 5px 25px rgba(138, 43, 226, 0.5); border: 1px solid rgba(138, 43, 226, 0.4); color: #e0e0ff; }
+.close-modal { position: absolute; top: 8px; right: 12px; background: none; border: none; font-size: 2.2em; color: #a0a0c0; cursor: pointer; line-height: 1; padding: 0; transition: color 0.2s ease-in-out; }
+.close-modal:hover { color: #fff; }
+.modal-tabs { display: flex; margin-bottom: 25px; border-bottom: 1px solid rgba(138, 43, 226, 0.3); }
+.tab-btn { flex-grow: 1; padding: 10px 15px; background: none; border: none; color: #a0a0c0; font-family: 'Orbitron', sans-serif; font-size: 1.1em; cursor: pointer; border-bottom: 3px solid transparent; transition: color 0.3s, border-color 0.3s; }
+.tab-btn:hover { color: #fff; }
+.tab-btn.active-tab { color: #fff; border-bottom-color: #cc00ff; }
+.modal-form { display: flex; flex-direction: column; gap: 18px; }
+.modal-form h2 { text-align: center; color: #fff; font-size: 1.8em; margin-bottom: 5px; text-shadow: 0 0 8px #cc00ff; }
+.modal-form .subheading { text-align: center; color: #b0b0ff; margin-top: -5px; margin-bottom: 15px; font-size: 0.95em; }
+.input-wrapper { position: relative; }
+.input-wrapper i.fa-user, .input-wrapper i.fa-envelope, .input-wrapper i.fa-lock { position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: #8A2BE2; font-size: 1.1em; z-index: 2; }
+.input-wrapper input[type="text"], .input-wrapper input[type="email"], .input-wrapper input[type="password"] { width: 100%; padding: 14px 15px 14px 50px; background-color: rgba(10, 10, 20, 0.7); border: 1px solid #8A2BE2; border-radius: 30px; color: #fff; font-family: 'Orbitron', sans-serif; font-size: 1em; transition: border-color 0.3s, box-shadow 0.3s; }
+.input-wrapper input[type="text"]:focus, .input-wrapper input[type="email"]:focus, .input-wrapper input[type="password"]:focus { outline: none; border-color: #cc00ff; box-shadow: 0 0 10px rgba(204, 0, 255, 0.5); }
+.input-wrapper input::placeholder { color: #777; opacity: 1; }
+.toggle-password { position: absolute; right: 18px; top: 50%; transform: translateY(-50%); color: #8A2BE2; cursor: pointer; z-index: 2; }
+.toggle-password:hover { color: #cc00ff; }
+.form-options { text-align: right; margin-top: -10px; margin-bottom: 10px; }
+.forgot-password { color: #b0b0ff; font-size: 0.9em; text-decoration: none; }
+.forgot-password:hover { color: #fff; text-decoration: underline; }
+.form-buttons { display: flex; gap: 15px; margin-top: 10px; }
+.form-buttons .primary-btn, .form-buttons .secondary-btn { flex-grow: 1; padding: 12px 20px; border: none; border-radius: 30px; font-family: 'Orbitron', sans-serif; font-size: 1.1em; font-weight: bold; cursor: pointer; transition: background-color 0.3s, color 0.3s, box-shadow 0.3s, border-color 0.3s; }
+.form-buttons .primary-btn { background-color: #fff; color: #1a1a3a; border: 1px solid #fff; }
+.form-buttons .primary-btn:hover { background-color: #cc00ff; color: #fff; border-color: #cc00ff; box-shadow: 0 0 10px #cc00ff; }
+.form-buttons .secondary-btn { background-color: transparent; color: #fff; border: 1px solid #8A2BE2; }
+.form-buttons .secondary-btn:hover { background-color: rgba(138, 43, 226, 0.2); border-color: #cc00ff; color: #fff; }
+.hidden-form { display: none !important; }
+
+/* ============================== */
+/* Responsive Styles              */
+/* ============================== */
+@media (max-width: 992px) {
+    /* --- MODIFICATION START for Contact Page --- */
+    .contact-content {
+        /* flex-direction: column; */ /* REMOVED */
+        padding: 30px 20px;           /* Adjusted padding */
+        /* gap: 30px; */             /* REMOVED */
+    }
+    .contact-details {
+         /* padding-left: 0; */       /* REMOVED */
+         /* border-left: none; */      /* REMOVED */
+         /* margin-top: 40px; */      /* REMOVED */
+         /* flex-basis: auto; */      /* REMOVED */
+         max-width: 100%; /* Allow full width */
+    }
+    /* REMOVED: .contact-form rules */
+    /* --- END MODIFICATION for Contact Page --- */
+}
+
+@media (max-width: 768px) {
+    /* Header Adjustments */
+    header { flex-direction: column; }
+    nav ul { margin-top: 15px; justify-content: center; }
+    nav ul li { margin: 0 10px; }
+    header a.button-link, /* Keep original selector logic */
+    header .sign-in-btn {
+        margin-top: 10px;
+    }
+
+    /* Hero Section Adjustments */
+    .hero { flex-direction: column; text-align: center; }
+    .hero-text { max-width: 100%; margin-bottom: 30px; }
+    .title-box { width: 90%; font-size: 2.5em; }
+    .hero-image { margin-top: 30px; }
+    .hero-image img { max-width: 60%; }
+
+    /* Card Section Adjustments */
+    .card-section { flex-direction: column; align-items: center; }
+    .card { margin-bottom: 20px; max-width: 80%; flex-basis: auto; }
+
+    /* About Page Adjustments */
+    .about-content { flex-direction: column; padding: 20px; max-width: 95%; margin-top: 30px; }
+    .about-image-container { max-width: 200px; margin-left: auto; margin-right: auto; margin-bottom: 30px; }
+    .about-text-container { flex-basis: 100%; text-align: center; }
+    .about-text-container p { font-size: 1em; text-align: justify;}
+
+    /* Contact Page Adjustments */
+    .main-heading { font-size: 2.2em; margin-bottom: 30px; }
+    .contact-content { padding: 20px; /* Further padding reduction */ }
+        /* Note: Centering logic for .contact-details from above should still apply */
+
+    /* Modal adjustments */
+    .modal-content { padding: 25px 20px; max-width: 90%; }
+    .modal-form h2 { font-size: 1.6em; }
+    .tab-btn { font-size: 1em; }
+    .form-buttons { flex-direction: column; gap: 10px; }
+}
